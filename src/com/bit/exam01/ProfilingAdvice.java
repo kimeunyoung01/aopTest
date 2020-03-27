@@ -4,16 +4,33 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 
 public class ProfilingAdvice {
-	
+	/*
 	public void afterThrowing(JoinPoint joinPoint) {
 		String methodName = joinPoint.getSignature().toShortString();
 		System.out.println(methodName + "가 비정상적으로 종료하였습니다.");
 	}
+	*/
+	public void afterThrowing(JoinPoint joinPoint, Throwable ex) {
+		String methodName = joinPoint.getSignature().toShortString();
+		System.out.println(methodName + "가 비정상적으로 종료하였습니다.");
+		System.out.println("다음과 같은 예외가 발생하였습니다.");
+		System.out.println(ex.getMessage());
+		System.out.println("===================================");
+	}
 	
+	public void afterReturning(JoinPoint joinPoint, Object ret) {
+		String methodName = joinPoint.getSignature().toShortString();
+		System.out.println(methodName + "가 정상완료 후 입니다.");
+		System.out.println("반환값은 다음과 같습니다.");
+		System.out.println(ret);
+		System.out.println("==================================");
+	}
+	
+	/*
 	public void afterReturning(JoinPoint joinPoint) {
 		String methodName = joinPoint.getSignature().toShortString();
 		System.out.println(methodName + "가 정상완료 후 입니다.");
-	}
+	}*/
 	
 	
 	public void after(JoinPoint joinPoint) {
