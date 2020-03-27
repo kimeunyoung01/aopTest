@@ -13,6 +13,7 @@ public class GoodsDao {
 		list.add("사과");
 		list.add("포도");
 		list.add("오렌지");
+		System.out.println( list.get(100)  );
 		return list;
 	}
 }
